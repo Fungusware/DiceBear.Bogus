@@ -32,6 +32,10 @@ Check it out here. https://www.dicebear.com/
 Extends [Bogus](https://github.com/bchavez/Bogus) to use DiceBear.Bogus.
 
 ```
+dotnet add package DiceBear.Bogus --version 2023.7.2.1451
+```
+
+```
 var faker = new Faker("en");
 
 string avatarURL = faker.DiceBear.OpenPeeps();
