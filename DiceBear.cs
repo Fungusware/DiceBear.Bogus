@@ -5,7 +5,52 @@ namespace Bogus
 {
     public class DiceBear : DataSet
     {
-        private string _diceBearBaseURL = "https://api.dicebear.com/6.x/";
+        private Random _randomShared = new Random();    
+
+        private string _diceBearBaseURL = "https://api.dicebear.com/9.x/";
+
+        private string[] _collections = new string[]
+        {
+            "adventurer-neutral",
+            "adventurer",
+            "avataaars-neutral",
+            "avataaars",
+            "big-ears-neutral",
+            "big-ears",
+            "big-smile",
+            "bottts-neutral",
+            "bottts",
+            "croodles-neutral",
+            "croodles",
+            "dylan",
+            "fun-emoji",
+            "glass",
+            "icons",
+            "identicon",
+            "initials",
+            "lorelei-neutral",
+            "lorelei",
+            "micah",
+            "miniavs",
+            "notionists-neutral",
+            "notionists",
+            "open-peeps",
+            "personas",
+            "pixel-art-neutral",
+            "pixel-art",
+            "rings",
+            "shapes",
+            "thumbs",
+        };
+
+        public string[] Collections => _collections;
+
+        public string RandomAvatar(string format = "svg", string seed = null, int size = 64, int scale = 100)
+        {
+            int position = _randomShared.Next(_collections.Length); 
+
+            return Avatar(_collections[position], format, seed, size);
+        }
 
         public string Avatar(string collection = "open-peeps", string format = "svg", string seed = null, int size = 64, int scale = 100)
         {
@@ -25,6 +70,16 @@ namespace Bogus
         public string AdventurerNeutral(string format = "svg", string seed = null, int size = 64, int scale = 100)
         {
             return Avatar("adventurer-neutral", format, seed, size);
+        }
+
+        public string Avataaars(string format = "svg", string seed = null, int size = 64, int scale = 100)
+        {
+            return Avatar("avataaars", format, seed, size);
+        }
+
+        public string AvataaarsNeutral(string format = "svg", string seed = null, int size = 64, int scale = 100)
+        {
+            return Avatar("avataaars-neutral", format, seed, size);
         }
 
         public string BigEars(string format = "svg", string seed = null, int size = 64, int scale = 100)
@@ -62,9 +117,19 @@ namespace Bogus
             return Avatar("croodles-neutral", format, seed, size);
         }
 
+        public string Dylan(string format = "svg", string seed = null, int size = 64, int scale = 100)
+        {
+            return Avatar("dylan", format, seed, size);
+        }
+
         public string FunEmoji(string format = "svg", string seed = null, int size = 64, int scale = 100)
         {
             return Avatar("fun-emoji", format, seed, size);
+        }
+
+        public string Glass(string format = "svg", string seed = null, int size = 64, int scale = 100)
+        {
+            return Avatar("glass", format, seed, size);
         }
 
         public string Icons(string format = "svg", string seed = null, int size = 64, int scale = 100)
@@ -130,6 +195,11 @@ namespace Bogus
         public string PixelArtNeutral(string format = "svg", string seed = null, int size = 64, int scale = 100)
         {
             return Avatar("pixel-art-neutral", format, seed, size);
+        }
+
+        public string Rings(string format = "svg", string seed = null, int size = 64, int scale = 100)
+        {
+            return Avatar("rings", format, seed, size);
         }
 
         public string Shapes(string format = "svg", string seed = null, int size = 64, int scale = 100)
